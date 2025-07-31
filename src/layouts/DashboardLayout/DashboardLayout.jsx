@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import DashboardHeader from './DashboardHeader';
 import DashboardSidebar from './DashboardSidebar';
@@ -12,7 +13,7 @@ const DashboardLayout = ({ children }) => {
         <DashboardHeader />
         <main className="dashboard-content p-4">
           <Container fluid>
-            {children}
+            <Outlet /> {/* Render nested routes here */}
           </Container>
         </main>
       </div>

@@ -10,13 +10,12 @@ import Home from './features/dashboard/Home';
 import Profile from './features/dashboard/Profile';
 
 const App = () => {
-  //const { isAuthenticated } = useSelector(state => state.auth);
+  const { isAuthenticated } = useSelector(state => state.auth);
 
   return (
     <Router>
       <Routes>
-        {/* Public routes with AuthLayout */}
-        {/* <Route element={<AuthLayout />}>
+        <Route element={<AuthLayout />}>
           <Route 
             path="/login" 
             element={!isAuthenticated ? <Login /> : <Navigate to="/" />} 
@@ -25,18 +24,14 @@ const App = () => {
             path="/register" 
             element={!isAuthenticated ? <Register /> : <Navigate to="/" />} 
           />
-        </Route> */}
-
-        {/* Protected routes with DashboardLayout */}
-        {/* <Route 
+        </Route>
+        <Route 
           element={isAuthenticated ? <DashboardLayout /> : <Navigate to="/login" />}
         >
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
-        </Route> */}
-
-        {/* Catch all route */}
-        {/* <Route path="*" element={<Navigate to={isAuthenticated ? "/" : "/login"} />} /> */}
+        </Route>
+        <Route path="*" element={<Navigate to={isAuthenticated ? "/" : "/login"} />} />
       </Routes>
     </Router>
   );

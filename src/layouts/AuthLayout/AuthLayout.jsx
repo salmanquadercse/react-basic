@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import AuthHeader from './AuthHeader';
 import './styles.css';
@@ -11,7 +12,7 @@ const AuthLayout = ({ children }) => {
         <Row className="h-100 justify-content-center align-items-center">
           <Col xs={12} md={8} lg={6} className="py-5">
             <div className="bg-white p-4 rounded shadow-sm">
-              {children}
+              <Outlet /> {/* Render nested routes here */}
             </div>
           </Col>
         </Row>
